@@ -26,7 +26,8 @@ Just send the post request to the back-end sevrer. It will
 
 ### JSON structure 
 ```
-{url: "https://github.com", 
+{
+url: "https://github.com", 
 site: "github.com", 
 favicon: "https:://github.comhttps://github.githubassets.com/favicons/favicon.svg",
 title: "The world’s leading software development platform · GitHub", 
