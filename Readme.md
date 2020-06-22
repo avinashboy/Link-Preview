@@ -10,7 +10,7 @@ Just send the post request to the back-end sevrer. It will
  `const url = "https://abt-link-preview.herokuapp.com";`
 
 
- $.ajax({
+ ``` $.ajax({
         type: "POST",
         url: url+"/api",
         data: { "Url": select.value },
@@ -21,6 +21,7 @@ Just send the post request to the back-end sevrer. It will
           console.log(err);
         }
       });
+ ```
 
 ### JSON structure 
 ```
