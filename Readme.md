@@ -21,7 +21,7 @@ Just send the post request to the back-end sevrer. It will
           console.log(err);
         }
       });```
-
+<br>
 ### JSON structure 
 ```
 {url: "https://github.com", 
