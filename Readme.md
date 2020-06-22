@@ -12,7 +12,7 @@ Just send the post request to the back-end sevrer. It will
 '''
  `$.ajax({
         type: "POST",
-        url: "`${url}/api`",
+        url: url+"/api",
         data: { "Url": select.value },
         success: function (response) {
           console.log(response);
