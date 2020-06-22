@@ -11,8 +11,10 @@
 <body>
   <input type="text" name="name" value="" id="link">
   <input type="submit" value="submit" id="btn">
+  <span id="demo"></span>
   <script>
     const btn = document.getElementById('btn')
+    const demo = document.getElementById('demo')
     btn.addEventListener('click', () => {
       const url = "https://abt-link-preview.herokuapp.com"
       const select = document.getElementById('link')
@@ -22,6 +24,7 @@
         data: { "Url": select.value },
         success: function (response) {
           console.log(response.result[0])
+          demo.innerText = response
         },
         error: function (err) {
           console.log(err)
