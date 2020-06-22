@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <title>Link-preview</title>
+  </style>
+</head>
+
+<body>
+  <input type="text" name="name" value="" id="link">
+  <input type="submit" value="submit" id="btn">
+  <script>
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', () => {
+      const url = "https://abt-link-preview.herokuapp.com"
+      const select = document.getElementById('link')
+      $.ajax({
+        type: "POST",
+        url: `${url}/api`,
+        data: { "Url": select.value },
+        success: function (response) {
+          console.log(response.result[0])
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
