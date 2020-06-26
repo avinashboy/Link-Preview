@@ -3,7 +3,13 @@
 Just send the post request to the back-end sevrer. It will
  response has json 
  <br>
- ## It consist of url,site,favicon,title,description,image
+ ## It consist of 
+  - Url
+  - Site
+  - Favicon
+  - Title
+  - Description
+  - Image
 
  ## Api key
  
