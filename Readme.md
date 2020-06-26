@@ -29,7 +29,7 @@ Just send the post request to the back-end sevrer. It will
 {
 url: "https://github.com", 
 site: "github.com", 
-favicon: "https:://github.comhttps://github.githubassets.com/favicons/favicon.svg",
+favicon: "https://github.githubassets.com/favicons/favicon.svg",
 title: "The world’s leading software development platform · GitHub", 
 description: "GitHub brings together the world’s largest communi…ll-in-one platform for collaborative development.",
 image: "https://github.githubassets.com/images/modules/open_graph/github-logo.png"
