@@ -18,7 +18,7 @@ Just send the post request to the back-end sevrer. It will
  ### index.html
 
 ```
-
+<input type="text" name="name" value="" id="link">
 
 ```
 ### Js
