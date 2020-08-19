@@ -14,13 +14,19 @@ Just send the post request to the back-end sevrer. It will
  ## Api key
  
  `const url = "https://abt-link-preview.herokuapp.com";`
+ 
+ ### index.html
+
+```
 
 
+```
+### Js
  ``` 
  $.ajax({
         type: "POST",
         url: url+"/api",
-        data: { "Url": select.value },
+        data: { "Url": link.value },
         success: function (response) {
           console.log(response);
         },
