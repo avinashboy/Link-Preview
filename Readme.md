@@ -15,12 +15,12 @@ Just send the post request to the back-end sevrer. It will
  
  `const url = "https://abt-link-preview.herokuapp.com";`
  
- ### html
+ ### HTML
 
 ```
 <input type="text" name="name" value="" id="link">
 ```
-### Js
+### JS
  ``` 
  $.ajax({
         type: "POST",
