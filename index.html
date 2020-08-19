@@ -18,11 +18,11 @@
     const demo = document.getElementById('demo')
     btn.addEventListener('click', () => {
       const url = "https://abt-link-preview.herokuapp.com"
-      const select = document.getElementById('link')
+      const link = document.getElementById('link')
       $.ajax({
         type: "POST",
         url: `${url}/api`,
-        data: { "Url": select.value },
+        data: { "Url": link.value },
         success: function (response) {
           console.log(response.result[0])
           demo.innerText = response
