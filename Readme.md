@@ -15,11 +15,10 @@ Just send the post request to the back-end sevrer. It will
  
  `const url = "https://abt-link-preview.herokuapp.com";`
  
- ### index.html
+ ### html
 
 ```
 <input type="text" name="name" value="" id="link">
-
 ```
 ### Js
  ``` 
