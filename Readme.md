@@ -11,7 +11,7 @@ Just send the post request to the back-end sevrer. It will
   - Description
   - Image
 
- ## Api
+ ## API
  
  `const url = "https://abt-link-preview.herokuapp.com";`
  
