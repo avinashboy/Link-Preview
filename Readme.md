@@ -1,6 +1,6 @@
 # Link preview 
 
-Just send the post request to the back-end sevrer. It will
+Just send the post request to the back-end server. It will send back
  response has json 
  <br>
  ## It consist of 
@@ -31,11 +31,12 @@ Just send the post request to the back-end sevrer. It will
         },
         error: function (err) {
           console.log(err);
+          alert(err.responseJSON.err);
         }
       });
  ```
 
-### JSON structure 
+### JSON response
 ```
 {
 url: "https://github.com", 
