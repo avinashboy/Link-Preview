@@ -3,32 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js"></script>
   <title>Link-preview...</title>
-  </style>
+ <style>
+   .img{
+     width: 250px;
+     height: 150px;
+   }
+
+   .imgs{
+     width: 20px;
+     height: 20px;
+   }
+ </style>
 </head>
 
 <body>
-  <input type="text" name="name" value="" id="link">
-  <input type="submit" value="submit" id="btn">
+  <div class="container mt-5 pt-2 pl-2 pr-2 pb-2">
+  <div class="mb-4"> 
+    <h1 id="link-preview">Link preview</h1>
+<p>Just send the post request to the back-end server. It will
+ response has json 
+ <br></p>
+<h2 id="it-consist-of">It consist of</h2>
+<ul>
+<li>Url</li>
+<li>Site</li>
+<li>Favicon</li>
+<li>Title</li>
+<li>Description</li>
+<li><p>Image</p>
+<h2 id="api">API</h2>
+<p><code>const url = &quot;https://abt-link-preview.herokuapp.com&quot;;</code></p>
+<h3 id="html">HTML</h3>
+</li>
+</ul>
+<pre><code>&lt;input type=<span class="hljs-string">"text"</span> <span class="hljs-built_in">name</span>=<span class="hljs-string">"name"</span> value=<span class="hljs-string">""</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">"link"</span>&gt;
+</code></pre><h3 id="js">JS</h3>
+<pre><code> $.ajax({
+        type: <span class="hljs-string">"<span class="hljs-keyword">POST</span>"</span>,
+        url: url+<span class="hljs-string">"/api"</span>,
+        data: { <span class="hljs-string">"Url"</span>: link.value },
+        success: function (response) {
+          console.log(response);
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
+</code></pre><h3 id="json-structure">JSON response</h3>
+<pre><code>{
+<span class="hljs-symbol">url:</span> <span class="hljs-string">"https://github.com"</span>, 
+<span class="hljs-symbol">site:</span> <span class="hljs-string">"github.com"</span>, 
+<span class="hljs-symbol">favicon:</span> <span class="hljs-string">"https://github.githubassets.com/favicons/favicon.svg"</span>,
+<span class="hljs-symbol">title:</span> <span class="hljs-string">"The world’s leading software development platform · GitHub"</span>, 
+<span class="hljs-symbol">description:</span> <span class="hljs-string">"GitHub brings together the world’s largest communi…ll-in-one platform for collaborative development."</span>,
+<span class="hljs-symbol">image:</span> <span class="hljs-string">"https://github.githubassets.com/images/modules/open_graph/github-logo.png"</span>
+}
+</code></pre><p>`</p>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <input type="text" name="name" value="" id="link" class="form-control">
+    </div>
+    <button type="submit" id="btn" class="btn btn-primary ml-3 mb-3 pt-2">submit</button>
+  </div>
+  
   <br>
-  <span id="demo"></span>
+  <div id="demo"></div>
+  </div>
+  
+  
   <script>
     const btn = document.getElementById('btn')
     const demo = document.getElementById('demo')
     btn.addEventListener('click', () => {
-      const url = "https://abt-link-preview.herokuapp.com"
+      const url = "https://abts-link-preview.herokuapp.com"
       const link = document.getElementById('link')
       $.ajax({
         type: "POST",
         url: `${url}/api`,
         data: { "Url": link.value },
         success: function (response) {
-          console.log(response.result[0])
-          demo.innerText = response
+          let data = response.result[0]
+          console.log(data)
+          demo.innerHTML = `
+          <div class="jumbotron">
+          <p class="lead" >Url: <span><a class="text-info" href="${data.url}">${data.url}</a></span></p>
+          <p class="lead" >Site Name: <span>${data.site}</span></p>
+          <p class="lead" >Title: <span>${data.title}</span></p>
+          <p class="lead" >Description: <span>${data.description}</span></p>
+          <p class="lead" >Favicon: <span><img src="${data.favicon}" class="imgs"></span></p>
+          <p class="lead" >Image: <span><img src="${data.image}" class="img"></span></p></div>
+          `
         },
         error: function (err) {
-          console.log(err)
+          alert(err.responseJSON.err)
         }
       });
     })
